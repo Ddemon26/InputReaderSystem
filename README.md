@@ -1,3 +1,5 @@
+![Input Reader](https://github.com/Ddemon26/InputReaderSystem/assets/95268795/3edc1704-8ffc-4229-9ce0-a23efad5bf57)
+***
 # Enhance Your Game with the InputReader System
 
 The InputReader system is a cutting-edge input handling solution designed for Unity developers seeking a streamlined and powerful way to manage player inputs. This system is a key component of the Scriptable Object Architecture package, providing a flexible and efficient approach to input management that can elevate your game to new heights.
