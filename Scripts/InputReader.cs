@@ -45,13 +45,14 @@ namespace TentCity.PlayerController.InputReaderSystem.Scripts
             switch (context.phase)
             {
                 case InputActionPhase.Started:
+                case InputActionPhase.Performed:
                     action.Invoke(true);
                     break;
                 case InputActionPhase.Canceled:
+                case InputActionPhase.Waiting:
+                case InputActionPhase.Disabled:
                     action.Invoke(false);
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 
