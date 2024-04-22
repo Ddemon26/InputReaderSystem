@@ -27,7 +27,7 @@ namespace InputReaderSystem.Scripts
         public bool AnalogMovement { get; private set; } = false;
         public Vector2 RotateControllerInput { get; private set; } = Vector2.zero;
 
-        public float ScrollWheelInput { get; private set; }
+        public Vector2 ScrollWheelInput { get; private set; }
 
         public bool JumpInput { get; set; }
         public bool RunInput { get; private set; }
@@ -39,6 +39,8 @@ namespace InputReaderSystem.Scripts
         public bool OpenUIInput { get; private set; }
         public bool EmoteInput { get; private set; }
         public bool CommandKeyInput { get; private set; }
+
+        public bool NumOneInput { get; private set; }
 
         private void OnEnable()
         {
@@ -68,6 +70,7 @@ namespace InputReaderSystem.Scripts
             inputReader.OpenUI += OnOpenUI;
             inputReader.Emote += OnEmote;
             inputReader.CommandKey += OnCommandKey;
+            inputReader.NumOne += OnNumOne;
 
             inputReader.EnablePlayerActions();
         }
@@ -88,6 +91,7 @@ namespace InputReaderSystem.Scripts
             inputReader.OpenUI -= OnOpenUI;
             inputReader.Emote -= OnEmote;
             inputReader.CommandKey -= OnCommandKey;
+            inputReader.NumOne -= OnNumOne;
 
             inputReader.DisablePlayerActions();
         }
@@ -148,6 +152,11 @@ namespace InputReaderSystem.Scripts
             RotateControllerInput = input;
         }
 
+        private void OnScrollWheel(Vector2 value, bool isMouseDevice)
+        {
+            ScrollWheelInput = value;
+        }
+
         private void ProcessInput(ref Vector2 input)
         {
             if (InvertY)
@@ -163,7 +172,6 @@ namespace InputReaderSystem.Scripts
             RotateInput = new Vector2(input.x, input.y);
         }
 
-        private void OnScrollWheel(float value) => ScrollWheelInput = value;
         private void OnJump(bool isPressed) => HandleBooleanInput(isPressed, value => JumpInput = value);
         private void OnRun(bool isPressed) => HandleBooleanInput(isPressed, value => RunInput = value);
         private void OnAttack(bool isPressed) => HandleBooleanInput(isPressed, value => AttackInput = value);
@@ -174,5 +182,6 @@ namespace InputReaderSystem.Scripts
         private void OnOpenUI(bool isPressed) => HandleBooleanInput(isPressed, value => OpenUIInput = value);
         private void OnEmote(bool isPressed) => HandleBooleanInput(isPressed, value => EmoteInput = value);
         private void OnCommandKey(bool isPressed) => HandleBooleanInput(isPressed, value => CommandKeyInput = value);
+        private void OnNumOne(bool isPressed) => HandleBooleanInput(isPressed, value => NumOneInput = value);
     }
 }

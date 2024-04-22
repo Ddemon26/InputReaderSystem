@@ -17,7 +17,7 @@ namespace InputReaderSystem.Editor
             EditorGUILayout.Vector2Field("Move Input", inputHub.MoveInput);
             EditorGUILayout.Vector2Field("Rotate Input", inputHub.RotateInput);
             EditorGUILayout.Vector2Field("Rotate Controller Input", inputHub.RotateControllerInput);
-            EditorGUILayout.FloatField("Scroll Wheel Input", inputHub.ScrollWheelInput);
+            EditorGUILayout.Vector2Field("Scroll Wheel Input", inputHub.ScrollWheelInput);
             EditorGUILayout.Toggle("Jump Input", inputHub.JumpInput);
             EditorGUILayout.Toggle("Run Input", inputHub.RunInput);
             EditorGUILayout.Toggle("Attack Input", inputHub.AttackInput);
@@ -28,6 +28,7 @@ namespace InputReaderSystem.Editor
             EditorGUILayout.Toggle("Open UI Input", inputHub.OpenUIInput);
             EditorGUILayout.Toggle("Emote Input", inputHub.EmoteInput);
             EditorGUILayout.Toggle("Command Key Input", inputHub.CommandKeyInput);
+            EditorGUILayout.Toggle("Num One Input", inputHub.NumOneInput);
             
             Repaint();
         }

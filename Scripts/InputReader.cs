@@ -14,7 +14,7 @@ namespace InputReaderSystem.Scripts
         public Vector3 Direction => inputActions.CharacterControls.Move.ReadValue<Vector2>();
         public event UnityAction<Vector2, bool> Rotate = delegate { };
         public event UnityAction<Vector2, bool> RotateController = delegate { };
-        public event UnityAction<float> ScrollWheel = delegate { };
+        public event UnityAction<Vector2, bool> ScrollWheel = delegate { };
         public event UnityAction<bool> Jump = delegate { };
         public event UnityAction<bool> Run = delegate { };
         public event UnityAction<bool> Attack = delegate { };
@@ -25,6 +25,7 @@ namespace InputReaderSystem.Scripts
         public event UnityAction<bool> OpenUI = delegate { };
         public event UnityAction<bool> Emote = delegate { };
         public event UnityAction<bool> CommandKey = delegate { };
+        public event UnityAction<bool> NumOne = delegate { };
 
         private void OnEnable()
         {
@@ -43,7 +44,7 @@ namespace InputReaderSystem.Scripts
             context.control.device.name.Contains("Gamepad");
         public void OnMove(InputAction.CallbackContext context) => Move.Invoke(context.ReadValue<Vector2>());
         public void OnScrollWheel(InputAction.CallbackContext context) =>
-            ScrollWheel.Invoke(context.ReadValue<float>());
+            ScrollWheel.Invoke(context.ReadValue<Vector2>(), IsMouseDevice(context));
         public void OnRotatePlayer(InputAction.CallbackContext context) =>
             Rotate.Invoke(context.ReadValue<Vector2>(), IsMouseDevice(context));
         public void OnRotatePlayerController(InputAction.CallbackContext context) =>
@@ -75,7 +76,8 @@ namespace InputReaderSystem.Scripts
         public void OnOpenUI(InputAction.CallbackContext context) => HandleBinaryAction(context, OpenUI);
         public void OnEmote(InputAction.CallbackContext context) => HandleBinaryAction(context, Emote);
         public void OnCommandKey(InputAction.CallbackContext context) => HandleBinaryAction(context, CommandKey);
-        
+        public void OnNumOne(InputAction.CallbackContext context) => HandleBinaryAction(context, NumOne);
+
         private static void HandleHoldAction(InputAction.CallbackContext context, UnityAction<bool> action)
         {
             switch (context.phase)
