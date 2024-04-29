@@ -43,6 +43,8 @@ namespace InputReaderSystem.Scripts
         public bool JumpInput() => jumpInput;
         [SerializeField] private bool runInput;
         public bool RunInput() => runInput;
+        [SerializeField] private bool reloadInput;
+        public bool ReloadInput() => reloadInput;
         [SerializeField] private bool attackInput;
         public bool AttackInput() => attackInput;
         [SerializeField] private bool crouchInput;
@@ -82,6 +84,7 @@ namespace InputReaderSystem.Scripts
             inputReader.ScrollWheel += OnScrollWheel;
             inputReader.Jump += OnJump;
             inputReader.Run += OnRun;
+            inputReader.Reload += OnReload;
             inputReader.Attack += OnAttack;
             inputReader.Crouch += OnCrouch;
             inputReader.Block += OnBlock;
@@ -103,6 +106,7 @@ namespace InputReaderSystem.Scripts
             inputReader.ScrollWheel -= OnScrollWheel;
             inputReader.Jump -= OnJump;
             inputReader.Run -= OnRun;
+            inputReader.Reload -= OnReload;
             inputReader.Attack -= OnAttack;
             inputReader.Crouch -= OnCrouch;
             inputReader.Block -= OnBlock;
@@ -137,7 +141,7 @@ namespace InputReaderSystem.Scripts
 
         private void CheckConnectedDevices()
         {
-            isMouseConnected = Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2);
+            isMouseConnected = UnityEngine.InputSystem.Mouse.current != null;
             isGamepadConnected = Input.GetJoystickNames().Length > 0;
         }
 
@@ -194,6 +198,7 @@ namespace InputReaderSystem.Scripts
 
         private void OnJump(bool isPressed) => HandleBooleanInput(isPressed, value => jumpInput = value);
         private void OnRun(bool isPressed) => HandleBooleanInput(isPressed, value => runInput = value);
+        private void OnReload(bool isPressed) => HandleBooleanInput(isPressed, value => reloadInput = value);
         private void OnAttack(bool isPressed) => HandleBooleanInput(isPressed, value => attackInput = value);
         private void OnCrouch(bool isPressed) => HandleBooleanInput(isPressed, value => crouchInput = value);
         private void OnBlock(bool isPressed) => HandleBooleanInput(isPressed, value => blockInput = value);

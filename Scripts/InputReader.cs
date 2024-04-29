@@ -17,6 +17,7 @@ namespace InputReaderSystem.Scripts
         public event UnityAction<Vector2, bool> ScrollWheel = delegate { };
         public event UnityAction<bool> Jump = delegate { };
         public event UnityAction<bool> Run = delegate { };
+        public event UnityAction<bool> Reload = delegate { };
         public event UnityAction<bool> Attack = delegate { };
         public event UnityAction<bool> Crouch = delegate { };
         public event UnityAction<bool> Block = delegate { };
@@ -69,6 +70,7 @@ namespace InputReaderSystem.Scripts
 
 
         public void OnRun(InputAction.CallbackContext context) => HandleBinaryAction(context, Run);
+        public void OnReload(InputAction.CallbackContext context) => HandleBinaryAction(context, Reload);
         public void OnJump(InputAction.CallbackContext context) => HandleBinaryAction(context, Jump);
         public void OnCrouch(InputAction.CallbackContext context) => HandleBinaryAction(context, Crouch);
         public void OnInteract(InputAction.CallbackContext context) => HandleBinaryAction(context, Interact);
