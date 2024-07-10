@@ -27,7 +27,16 @@
                     "name": "Run",
                     "type": "Button",
                     "id": "43b4ded6-524f-4505-b9e2-0dac95b853e1",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "01738049-303f-415a-b1b9-92a33e59552b",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -36,7 +45,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "ea973715-243f-4f8b-a38c-a9a9d4d7669c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -118,6 +127,15 @@
                     "type": "Button",
                     "id": "0f137f7c-9433-411c-a90c-0730b7741570",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NumOne",
+                    "type": "Button",
+                    "id": "39710d1f-9097-4ffe-9bb7-cb22aa163449",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -209,6 +227,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54952eac-1d75-486b-bca3-84207b4bee0a",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d517f5fb-2e6a-4e34-8242-70ed49bb7426",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -431,11 +471,22 @@
                     "action": "CommandKey",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a02f0cae-453c-4cef-9f78-7f15b3dcb421",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NumOne",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "MenuUI",
+            "name": "UI",
             "id": "f74d9c65-042a-4ab6-a481-168bbf122535",
             "actions": [
                 {
